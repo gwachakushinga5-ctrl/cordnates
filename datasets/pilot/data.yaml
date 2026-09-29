@@ -1,0 +1,6 @@
+# YOLOv8 dataset config — pilot (single class)
+path: datasets/pilot
+train: tiles
+val: tiles
+names:
+  0: barn_roof

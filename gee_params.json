@@ -1,0 +1,34 @@
+{
+  "gee_asset": "projects/durable-pulsar-473408-r2/assets/cleaned_tobacco_barn_coordinates",
+  "collection": "COPERNICUS/S2_SR_HARMONIZED",
+  "date_range": ["2024-01-01", "2024-12-31"],
+  "cloud_filter": "CLOUDY_PIXEL_PERCENTAGE < 10",
+  "reducer": "median",
+  "bands": ["B4", "B3", "B2"],
+  "vis_range": [0, 3000],
+  "scale_m": 10,
+  "per_point_buffer_m": 50,
+  "export": {
+    "description": "TRB_Tobacco_Barn_Image_Patches",
+    "folder": "TRB_Barn_Patches",
+    "maxPixels": 1e13,
+    "shardSize": 256,
+    "fileFormat": "GeoTIFF"
+  },
+  "local_shards": {
+    "mosaic": {
+      "file": "TRB_Tobacco_Barn_Image_Patches-0000000000-0000000000.tif",
+      "shape_xy": [37888, 31105],
+      "origin_lon": 29.372753834026465,
+      "origin_lat": -16.443032455108956
+    },
+    "pilot": {
+      "file": "TRB_Tobacco_Barn_Image_Patches-0000000000-0000037888.tif",
+      "shape_xy": [354, 31105],
+      "origin_lon": 32.776290782498506,
+      "origin_lat": -16.443032455108956
+    }
+  },
+  "pixel_scale_deg": 8.983152841195215e-05,
+  "crs": "EPSG:4326"
+}

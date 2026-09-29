@@ -1,0 +1,14 @@
+# Pilot: barn-roof detection on small strip (354 x 31105)
+# Light deps first; ultralytics pulls torch (~2GB) — install last.
+Pillow>=10.0
+numpy>=1.26
+tifffile>=2023.4
+PyYAML>=6.0
+tqdm>=4.66
+# Heavy / AI-assisted pre-labeling:
+ultralytics>=8.2
+# Optional: Roboflow upload
+roboflow>=1.1
+# Optional but recommended on Windows (wheels): use `pip install rasterio` only
+# if GDAL wheel works on your Python; tiling + QC work without it via tifffile+Pillow.
+# rasterio>=1.3

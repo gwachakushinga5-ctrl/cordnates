@@ -1,0 +1,12 @@
+# Large imagery + outputs never go in git
+*.tif
+*.tiff
+*.geotiff
+roboflow_png_images/
+datasets/pilot/tiles/*.png
+datasets/pilot/tiles/*.jpg
+datasets/pilot/tiles_preview/
+runs/
+*.pt
+__pycache__/
+.venv/

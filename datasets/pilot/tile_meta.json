@@ -1,0 +1,14 @@
+{
+  "W_orig": 354,
+  "H_orig": 31105,
+  "tile_w": 354,
+  "tile_h": 640,
+  "tile": 640,
+  "pad_left": 0,
+  "pad_right": 0,
+  "pad_bottom": 543,
+  "overlap": 0.15,
+  "step": 544,
+  "n_tiles": 58,
+  "src": "TRB_Tobacco_Barn_Image_Patches-0000000000-0000037888.png"
+}
