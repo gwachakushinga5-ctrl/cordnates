@@ -25,15 +25,12 @@ TILES = PILOT / "tiles"
 LABELS = PILOT / "labels"
 
 
-def candidates(tile_path, pct=99.5, floor=150, min_area=2, max_area=500,
-               top_k=40, grow=3):
+def candidates_from_array(img_bgr, pct=99.5, floor=150, min_area=2,
+                          max_area=500, top_k=40, grow=3):
     import cv2
     import numpy as np
 
-    img = cv2.imread(str(tile_path))
-    if img is None:
-        return []
-    b, g, r = cv2.split(img)
+    b, g, r = cv2.split(img_bgr)
     bright = np.minimum(np.minimum(r, g), b).astype(np.float32)
     thr = max(float(np.percentile(bright, pct)), float(floor))
     mask = ((bright >= thr) * 255).astype(np.uint8)
@@ -66,6 +63,17 @@ def candidates(tile_path, pct=99.5, floor=150, min_area=2, max_area=500,
         outs.append((score, x1, y1, x2, y2))
     outs.sort(reverse=True)
     return outs[:top_k]
+
+
+def candidates(tile_path, pct=99.5, floor=150, min_area=2, max_area=500,
+               top_k=40, grow=3):
+    import cv2
+
+    img = cv2.imread(str(tile_path))
+    if img is None:
+        return []
+    return candidates_from_array(img, pct, floor, min_area, max_area,
+                                 top_k, grow)
 
 
 def main(pct, floor, min_area, max_area, top_k, grow):

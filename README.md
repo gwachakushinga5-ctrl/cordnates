@@ -34,3 +34,15 @@ Single class `0 = barn_roof`. Tight box on roof drip-edge only. See `LABEL_GUIDE
   `ROBOFLOW_UPLOAD.md`; confirm/adjust seeds, delete river/sand false
   positives, export YOLOv8 — corrections become training data for an
   in-domain detector to scale to the full 37888-wide mosaic (6232 points).
+
+## Full mosaic results (2026-09-29)
+- `scripts/tile_full.py` (windowed LZW reads, ~1.3GB RAM-safe): 70 cols x 58
+  rows = **4060 tiles** 640x640, 15% overlap, JPG q82 + 1/16 overview preview.
+- Single-pass candidates: **29,057**; GEE seeds: **6232 points → 8645 rows**.
+- Merge (grid NMS): **37,702 raw → 25,950 merged**, 0 QC flags,
+  `datasets/full/geo_boxes.geojson` (25,950 georeferenced polygons).
+- Spot check `runs/seed_check_full.jpg`: seed lands on a farm compound by
+  tracks/fields; detector boxes on nearby bright roofs.
+- Review strategy for 25,950 boxes: prioritize the 6232 seed boxes + a
+  stratified sample; bulk-delete `far_from_point` clusters over rivers/sand
+  (sidecars). Full-manual review of all boxes is not recommended.

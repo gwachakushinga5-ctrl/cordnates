@@ -3,9 +3,9 @@
 *.tiff
 *.geotiff
 roboflow_png_images/
-datasets/pilot/tiles/*.png
-datasets/pilot/tiles/*.jpg
-datasets/pilot/tiles_preview/
+datasets/*/tiles/
+datasets/*/tiles_preview/
+datasets/*/preview_16x.jpg
 runs/
 *.pt
 __pycache__/
